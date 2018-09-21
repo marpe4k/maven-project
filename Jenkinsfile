@@ -16,7 +16,7 @@ pipeline {
          pollSCM('* * * * *')
      }
 
-stages{
+    stages{
         stage('Build'){
             steps {
                 sh 'mvn clean package'
@@ -33,7 +33,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "cp **/target/*.war ${params.tomcat_dev}:/opt/apache-tomcat-8.5.34-staging/webapps"
+                        sh "cp **/target/*.war /opt/apache-tomcat-8.5.34-staging/webapps"
                     }
                 }
 
