@@ -39,7 +39,7 @@ pipeline {
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "scp -i /home/jenkins/tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
+                        sh "cp **/target/*.war /opt/apache-tomcat-8.5.34-prod/webapps"
                     }
                 }
             }
